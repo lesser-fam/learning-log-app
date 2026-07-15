@@ -40,6 +40,7 @@ make setup
 セットアップ後、次のURLを確認します。
 
 - Next.js: http://localhost:3000
+- 実装設計トレーニング: http://localhost:3000/design-trainer
 - Laravel: http://localhost:8081/up
 - APIヘルスチェック: http://localhost:8081/api/health
 - phpMyAdmin: http://localhost:8082
@@ -73,6 +74,24 @@ make format    # PHPコードを整形
 - Next.jsの登録フォーム
 
 最初の目標は「学習記録を1件登録するAPI」です。いきなりコードを書かず、完成条件と処理手順を日本語で整理してから着手します。
+
+## 実装設計トレーニング
+
+`index`、`store`、`show`、`update`、`destroy`から実装したいメソッドを選び、一般的なAPI設計項目をフォームで整理できます。
+
+- リクエストボディ、FormRequest、認証、所有者確認
+- 検索条件、並び順、第2ソート、ページネーション
+- 関連データの取得、更新方法、物理削除・論理削除
+- 成功レスポンスとHTTPステータス
+
+入力内容から、次の内容をブラウザ内で生成します。外部APIやAIサービスへの送信は行いません。
+
+- 日本語の処理手順
+- LaravelのRoute、FormRequest、Controllerのコード例
+- よくある正常系、異常系、境界値、権限テスト
+- Laravel Feature Testのコード例
+
+コード例は初期状態では折りたたまれています。先に日本語の処理手順から実装を考え、必要になったときだけ開いて答え合わせに使用します。
 
 ## 補足
 

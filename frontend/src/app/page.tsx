@@ -1,65 +1,64 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="min-h-screen bg-[#f6f7fb] px-5 py-10 text-slate-900 sm:px-8 lg:py-20">
+      <div className="mx-auto max-w-6xl">
+        <div className="flex items-center gap-3 font-bold text-slate-950">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-600 text-white">
+            L
+          </span>
+          Learning Log
+        </div>
+
+        <section className="mt-16 max-w-3xl">
+          <p className="text-sm font-bold tracking-widest text-indigo-600">
+            LEARN BY BUILDING
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <h1 className="mt-4 text-4xl font-black leading-tight tracking-tight text-slate-950 sm:text-6xl">
+            考えた手順を、
+            <br />
+            自分のコードにする。
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg leading-9 text-slate-600">
+            学習内容を記録しながら、APIの設計、処理の分解、実装、テストを一つずつ身につけるためのアプリです。
+          </p>
+        </section>
+
+        <div className="mt-12 grid gap-5 md:grid-cols-2">
+          <Link
+            href="/design-trainer"
+            className="group rounded-3xl bg-indigo-600 p-7 text-white shadow-xl shadow-indigo-200 transition hover:-translate-y-1 hover:bg-indigo-700"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <span className="text-xs font-black tracking-widest text-indigo-200">
+              DESIGN TRAINER
+            </span>
+            <h2 className="mt-4 text-2xl font-black">実装設計トレーニング</h2>
+            <p className="mt-3 max-w-md text-sm leading-7 text-indigo-100">
+              CRUDの設計項目を選び、日本語の処理手順・Laravelコード・テスト観点へ変換します。
+            </p>
+            <span className="mt-7 inline-flex items-center gap-2 text-sm font-bold">
+              はじめる{" "}
+              <span className="transition group-hover:translate-x-1">→</span>
+            </span>
+          </Link>
+
+          <div className="rounded-3xl border border-slate-200 bg-white p-7 text-slate-400 shadow-sm">
+            <span className="text-xs font-black tracking-widest">
+              LEARNING LOG
+            </span>
+            <h2 className="mt-4 text-2xl font-black text-slate-700">
+              学習記録
+            </h2>
+            <p className="mt-3 max-w-md text-sm leading-7">
+              今日取り組んだこと、理解したこと、詰まったこと、次の行動を記録します。
+            </p>
+            <span className="mt-7 inline-block rounded-full bg-slate-100 px-3 py-1 text-xs font-bold">
+              これから実装
+            </span>
+          </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }
