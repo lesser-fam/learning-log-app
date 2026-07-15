@@ -9,6 +9,21 @@ use Illuminate\Http\JsonResponse;
 
 class LearningLogController extends Controller
 {
+    public function index(): JsonResponse
+    {
+        $learningLogs = LearningLog::query()
+            ->orderByDesc('studied_on')
+            ->orderByDesc('id')
+            ->get();
+
+        $response = [
+            'message' => '学習記録一覧を取得しました。',
+            'data' => $learningLogs,
+        ];
+
+        return response()->json($response, 200);
+    }
+
     public function store(StoreLearningLogRequest $request): JsonResponse
     {
         $validated = $request->validated();
