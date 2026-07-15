@@ -1,7 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\LearningLogController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/health', fn () => response()->json([
-    'status' => 'ok',
-]));
+Route::post('/learning-logs', [LearningLogController::class, 'store']);
