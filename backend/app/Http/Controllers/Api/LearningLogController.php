@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreLearningLogRequest;
+use App\Http\Requests\UpdateLearningLogRequest;
 use App\Models\LearningLog;
 use Illuminate\Http\JsonResponse;
 
@@ -43,6 +44,18 @@ class LearningLogController extends Controller
         return response()->json([
             'message' => '学習記録を取得しました。',
             'data' => $learningLog,
+        ], 200);
+    }
+
+    public function update(UpdateLearningLogRequest $request, LearningLog $learningLog): JsonResponse
+    {
+        $validated = $request->validated();
+
+        $learningLog->update($validated);
+
+        return response()->json([
+            'message' => '学習記録を更新しました。',
+            'data' => $learningLog->refresh(),
         ], 200);
     }
 }
