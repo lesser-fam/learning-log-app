@@ -58,4 +58,14 @@ class LearningLogController extends Controller
             'data' => $learningLog->refresh(),
         ], 200);
     }
+
+    public function destroy(LearningLog $learningLog): JsonResponse
+    {
+        $learningLog->delete();
+
+        return response()->json(
+            ['message' => '学習記録を削除しました。'],
+            200
+        );
+    }
 }
