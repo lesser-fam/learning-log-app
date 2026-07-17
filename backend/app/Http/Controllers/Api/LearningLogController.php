@@ -37,4 +37,12 @@ class LearningLogController extends Controller
 
         return response()->json($response, 201);
     }
+
+    public function show(LearningLog $learningLog): JsonResponse
+    {
+        return response()->json([
+            'message' => '学習記録を取得しました。',
+            'data' => $learningLog,
+        ], 200);
+    }
 }
