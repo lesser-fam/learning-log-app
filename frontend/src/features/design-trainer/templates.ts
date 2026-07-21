@@ -51,6 +51,8 @@ export const initialDesign: DesignState = {
   authentication: false,
   ownership: false,
   responseMessage: true,
+  responseFields:
+    "id: number\nstudied_on: string\ngoal: string\nactivities: string\nlearnings: string | null\nblockers: string | null\nsolution: string | null\nrequirements: string | null\nprocess_breakdown: string | null\nimplementation_steps: string | null\ncode_snippet: string | null\nopen_questions: string | null\nnext_action: string\ncreated_at: string\nupdated_at: string",
   requestClass: "StoreLearningLogRequest",
   inputFields: "studied_on, goal, activities, next_action",
   validationRules:
