@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { ReactNode, useMemo, useState } from "react";
+import { ReactNode, useEffect, useMemo, useState } from "react";
 import { generateDesign } from "@/features/design-trainer/generator";
+import { loadDesign, saveDesign } from "@/features/design-trainer/storage";
 import {
   actionDefinitions,
   defaultsForAction,
@@ -130,12 +131,26 @@ function CodeDetails({ title, code }: { title: string; code: string }) {
 
 export default function DesignTrainerPage() {
   const [design, setDesign] = useState<DesignState>(initialDesign);
+  const [storageReady, setStorageReady] = useState(false);
   const generated = useMemo(() => generateDesign(design), [design]);
   const selected = actionDefinitions.find(
     (item) => item.action === design.action,
   )!;
   const needsBody = design.action === "store" || design.action === "update";
   const needsTarget = ["show", "update", "destroy"].includes(design.action);
+
+  useEffect(() => {
+    const stored = loadDesign();
+    const frame = window.requestAnimationFrame(() => {
+      if (stored) setDesign({ ...initialDesign, ...stored });
+      setStorageReady(true);
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
+
+  useEffect(() => {
+    if (storageReady) saveDesign(design);
+  }, [design, storageReady]);
 
   function update<K extends keyof DesignState>(key: K, value: DesignState[K]) {
     setDesign((current) => ({ ...current, [key]: value }));
@@ -627,21 +642,47 @@ export default function DesignTrainerPage() {
                   204 No Contentではレスポンス本文を返しません。
                 </p>
               ) : (
-                <Toggle
-                  checked={design.responseMessage}
-                  onChange={(value) => update("responseMessage", value)}
-                  label="成功メッセージを含める"
-                  description="dataに加えて画面表示用のmessageを返します。"
-                />
+                <div className="space-y-5">
+                  <Toggle
+                    checked={design.responseMessage}
+                    onChange={(value) => update("responseMessage", value)}
+                    label="成功メッセージを含める"
+                    description="dataに加えて画面表示用のmessageを返します。"
+                  />
+                  <Field
+                    label="dataに含める項目と型"
+                    hint="1行に field: TypeScriptの型"
+                  >
+                    <textarea
+                      className={`${inputClass} min-h-56 resize-y font-mono`}
+                      value={design.responseFields}
+                      onChange={(event) =>
+                        update("responseFields", event.target.value)
+                      }
+                    />
+                  </Field>
+                  <p className="text-xs leading-5 text-slate-500">
+                    ここで整理したレスポンスの形を、フロント実装トレーナーのTypeScript型へ引き継ぎます。
+                  </p>
+                </div>
               )}
             </Section>
-            <button
-              type="button"
-              onClick={() => setDesign(initialDesign)}
-              className="w-full rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-bold text-slate-600 transition hover:text-slate-950"
-            >
-              入力を初期状態に戻す
-            </button>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <button
+                type="button"
+                onClick={() => setDesign(initialDesign)}
+                className="rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-bold text-slate-600 transition hover:text-slate-950"
+              >
+                入力を初期状態に戻す
+              </button>
+              <Link
+                href="/frontend-trainer"
+                onClick={() => saveDesign(design)}
+                className="rounded-2xl bg-cyan-600 px-5 py-3 text-center text-sm font-bold text-white transition hover:bg-cyan-700"
+              >
+                フロント実装設計へ進む →
+              </Link>
+            </div>
           </div>
 
           <aside className="space-y-6 xl:sticky xl:top-6">

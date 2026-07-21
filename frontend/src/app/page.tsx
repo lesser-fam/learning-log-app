@@ -43,6 +43,40 @@ export default function Home() {
             </span>
           </Link>
 
+          <Link
+            href="/frontend-trainer"
+            className="group rounded-3xl bg-cyan-700 p-7 text-white shadow-xl shadow-cyan-200 transition hover:-translate-y-1 hover:bg-cyan-800"
+          >
+            <span className="text-xs font-black tracking-widest text-cyan-200">
+              FRONTEND TRAINER
+            </span>
+            <h2 className="mt-4 text-2xl font-black">フロント実装トレーニング</h2>
+            <p className="mt-3 max-w-md text-sm leading-7 text-cyan-100">
+              API設計を、TypeScript型・state・useEffect・表示条件へ変換します。
+            </p>
+            <span className="mt-7 inline-flex items-center gap-2 text-sm font-bold">
+              はじめる{" "}
+              <span className="transition group-hover:translate-x-1">→</span>
+            </span>
+          </Link>
+
+          <Link
+            href="/component-map"
+            className="group rounded-3xl bg-violet-700 p-7 text-white shadow-xl shadow-violet-200 transition hover:-translate-y-1 hover:bg-violet-800"
+          >
+            <span className="text-xs font-black tracking-widest text-violet-200">
+              COMPONENT MAP
+            </span>
+            <h2 className="mt-4 text-2xl font-black">ページ・部品構成マップ</h2>
+            <p className="mt-3 max-w-md text-sm leading-7 text-violet-100">
+              各page.tsxの部品、役割、画面間の導線を視覚的に管理します。
+            </p>
+            <span className="mt-7 inline-flex items-center gap-2 text-sm font-bold">
+              マップを開く{" "}
+              <span className="transition group-hover:translate-x-1">→</span>
+            </span>
+          </Link>
+
           <div className="rounded-3xl border border-slate-200 bg-white p-7 text-slate-400 shadow-sm">
             <span className="text-xs font-black tracking-widest">
               LEARNING LOG

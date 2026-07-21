@@ -20,6 +20,7 @@ export interface DesignState {
   authentication: boolean;
   ownership: boolean;
   responseMessage: boolean;
+  responseFields: string;
   requestClass: string;
   inputFields: string;
   validationRules: string;
