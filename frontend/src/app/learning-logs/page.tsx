@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 type LearningLog = {
     id: number;
@@ -102,6 +103,9 @@ export default function LearningLogsPage() {
                             <h2>{learningLog.goal}</h2>
                             <p>今日やったこと：{learningLog.activities}</p>
                             <p>次にやること：{learningLog.next_action}</p>
+                            <Link href={`/learning-logs/${learningLog.id}`}>
+                                詳細を見る
+                            </Link>
                         </li>
                     ))}
                 </ul>
