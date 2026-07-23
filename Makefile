@@ -26,7 +26,7 @@ setup:
 	docker compose run --rm backend php artisan key:generate
 	docker compose run --rm frontend npm install
 	docker compose up -d
-	@echo "Setup complete: frontend=http://localhost:3000 backend=http://localhost:8081/up"
+	@echo "Setup complete: frontend=http://localhost:4310 backend=http://localhost:8081/up"
 
 up:
 	docker compose up -d
