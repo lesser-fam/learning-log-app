@@ -93,6 +93,23 @@ export default function Home() {
               <span className="transition group-hover:translate-x-1">→</span>
             </span>
           </Link>
+
+          <Link
+            href="/pattern-library"
+            className="group rounded-3xl bg-amber-600 p-7 text-white shadow-xl shadow-amber-200 transition hover:-translate-y-1 hover:bg-amber-700"
+          >
+            <span className="text-xs font-black tracking-widest text-amber-100">
+              PATTERN LIBRARY
+            </span>
+            <h2 className="mt-4 text-2xl font-black">実装パターン辞書</h2>
+            <p className="mt-3 max-w-md text-sm leading-7 text-amber-50">
+              Laravel・Next.js・React・TypeScriptの定番処理を、分解手順と確認項目から学べます。
+            </p>
+            <span className="mt-7 inline-flex items-center gap-2 text-sm font-bold">
+              パターンを見る{" "}
+              <span className="transition group-hover:translate-x-1">→</span>
+            </span>
+          </Link>
         </div>
       </div>
     </main>
