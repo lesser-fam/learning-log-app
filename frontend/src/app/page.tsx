@@ -77,20 +77,22 @@ export default function Home() {
             </span>
           </Link>
 
-          <div className="rounded-3xl border border-slate-200 bg-white p-7 text-slate-400 shadow-sm">
-            <span className="text-xs font-black tracking-widest">
+          <Link
+            href="/learning-logs"
+            className="group rounded-3xl bg-emerald-700 p-7 text-white shadow-xl shadow-emerald-200 transition hover:-translate-y-1 hover:bg-emerald-800"
+          >
+            <span className="text-xs font-black tracking-widest text-emerald-200">
               LEARNING LOG
             </span>
-            <h2 className="mt-4 text-2xl font-black text-slate-700">
-              学習記録
-            </h2>
-            <p className="mt-3 max-w-md text-sm leading-7">
+            <h2 className="mt-4 text-2xl font-black">学習記録</h2>
+            <p className="mt-3 max-w-md text-sm leading-7 text-emerald-100">
               今日取り組んだこと、理解したこと、詰まったこと、次の行動を記録します。
             </p>
-            <span className="mt-7 inline-block rounded-full bg-slate-100 px-3 py-1 text-xs font-bold">
-              これから実装
+            <span className="mt-7 inline-flex items-center gap-2 text-sm font-bold">
+              記録を見る{" "}
+              <span className="transition group-hover:translate-x-1">→</span>
             </span>
-          </div>
+          </Link>
         </div>
       </div>
     </main>
