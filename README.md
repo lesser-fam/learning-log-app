@@ -81,12 +81,12 @@ make setup
 
 セットアップ後、次のURLを確認します。
 
-- トップページ: http://localhost:3000
-- 学習記録: http://localhost:3000/learning-logs
-- 実装設計トレーニング: http://localhost:3000/design-trainer
-- フロント実装トレーニング: http://localhost:3000/frontend-trainer
-- コンポーネントマップ: http://localhost:3000/component-map
-- 実装パターン辞書: http://localhost:3000/pattern-library
+- トップページ: http://localhost:4310
+- 学習記録: http://localhost:4310/learning-logs
+- 実装設計トレーニング: http://localhost:4310/design-trainer
+- フロント実装トレーニング: http://localhost:4310/frontend-trainer
+- コンポーネントマップ: http://localhost:4310/component-map
+- 実装パターン辞書: http://localhost:4310/pattern-library
 - Laravelヘルスチェック: http://localhost:8081/up
 - phpMyAdmin: http://localhost:8082
 
