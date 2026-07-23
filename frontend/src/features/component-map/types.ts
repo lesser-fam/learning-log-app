@@ -26,3 +26,16 @@ export interface ComponentMapData {
   nodes: PageNode[];
   edges: Edge[];
 }
+
+export interface ComponentMapApp extends ComponentMapData {
+  id: string;
+  name: string;
+  description: string;
+  repositoryUrl: string;
+}
+
+export interface ComponentMapWorkspace {
+  version: 2;
+  activeAppId: string;
+  apps: ComponentMapApp[];
+}
